@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/search.css') }}">
+{% endblock %}
+
+{% block title %}
+{{ search_query }}
+{% endblock %}
+
+{% block body %}
+    <header>
+        <center>
+        <div class="bar">
+            <form action="/search" method="GET">
+                <input class="searchbar" type="text" title="Search" name="search" id="search" placeholder="Search">
+                <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
+            </form>
+        </div>
+        </center>
+    </header>
+    {% if results_dict %}
+        {% for key, value in results_dict.items() %}
+            <div style="padding-top:50px;" class="container">
+                <p style="color:black;font-size:20px;">{{ value.split('https://')[1] }}</p>
+                <h2 style=""><a href="{{ value }}">{{ search_query }}|{{key}}</a></h2>
+            </div>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+{% endblock %}

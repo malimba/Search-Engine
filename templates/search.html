@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/search.css') }}">
 {% endblock %}
 
-{% block title %}Search{% endblock %}
+{% block title %}New Tab{% endblock %}
 
 {% block body %}
 <center>
@@ -17,8 +17,10 @@
       <h1>[̲̅p][̲̅i][̲̅s][̲̅e][̲̅a][̲̅r][̲̅c][̲̅h]</h1>
     </div>
     <div class="bar">
-      <input class="searchbar" type="text" title="Search">
-      <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
+        <form action="/search" method="GET">
+            <input class="searchbar" type="text" title="Search" name="search" id="search">
+            <a href="#"> <img class="voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png" title="Search by Voice"></a>
+        </form>
     </div>
     </center>
 {% endblock %}
